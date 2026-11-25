@@ -72,7 +72,7 @@
       </div>
       <div class="downloads">
         <a class="btn primary" href="https://fromrusttildawn.itch.io/survive">Play in browser<small>on itch.io</small></a>
-        <a class="btn primary" href="https://github.com/j-mav/darwinstudio/releases/download/frtd-0.9145/FromRustTilDawn-0.9145-Windows.zip">Windows<small>64-bit · 389 MB</small></a>
+        <a class="btn primary" data-coffee-gate href="https://github.com/j-mav/darwinstudio/releases/download/frtd-0.9145/FromRustTilDawn-0.9145-Windows.zip">Windows<small>64-bit · 389 MB</small></a>
       </div>
       <p class="req">Browser: a recent Chrome, Edge or Firefox on a desktop or laptop. Windows: Windows 10 or 11, 64-bit.
         Post your high score on <a href="https://www.reddit.com/r/FromRustTilDawn/">r/FromRustTilDawn</a>.</p>
@@ -134,6 +134,49 @@
 </section>
 
 </main>
+
+<!-- Before a download: a short ask for a coffee. The download button inside takes its link from the button
+     that was clicked, so games.html keeps one download link per file (update-game-downloads.ps1 rewrites it). -->
+<dialog id="coffee-gate" class="gate" aria-labelledby="gate-title">
+  <form method="dialog" class="gate-close"><button aria-label="Close">×</button></form>
+  <p class="label">Before you go</p>
+  <h2 id="gate-title">From Rust 'Til Dawn is free</h2>
+  <p>No price tag, no ads, no catch. If you'd like to help keep it that way, you can buy me a coffee. It keeps me
+    (the developer) going, and also helps cover catnip costs for the resident studio cats. We appreciate it!</p>
+  <div class="coffee">
+    <a href="https://buymeacoffee.com/darwinstudio" target="_blank" rel="noopener">
+      <img class="coffee-button" src="assets/img/bmc-button.png" width="545" height="153" alt="Buy me a coffee (opens in a new tab)">
+    </a>
+    <img class="coffee-qr" src="assets/img/bmc-qr.svg" width="33" height="33"
+         alt="QR code for buymeacoffee.com/darwinstudio">
+  </div>
+  <div class="gate-actions">
+    <a class="btn primary" id="gate-go" href="#">Continue to download</a>
+  </div>
+  <p class="req" id="gate-what"></p>
+</dialog>
+
+<script>
+// Clicking a [data-coffee-gate] download opens the coffee dialog instead; its button then starts the download.
+// Without JS (or without <dialog> support) the link just downloads.
+(function () {
+  var d = document.getElementById('coffee-gate');
+  if (!d || typeof d.showModal !== 'function') return;
+  var go = document.getElementById('gate-go'), what = document.getElementById('gate-what');
+  document.querySelectorAll('a[data-coffee-gate]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      if (e.ctrlKey || e.metaKey || e.shiftKey || e.button !== 0) return;
+      e.preventDefault();
+      go.href = a.href;
+      var s = a.querySelector('small');
+      what.textContent = a.firstChild.textContent.trim() + (s ? ', ' + s.textContent : '');
+      d.showModal();
+    });
+  });
+  go.addEventListener('click', function () { d.close(); });
+  d.addEventListener('click', function (e) { if (e.target === d) d.close(); }); // click outside the box
+})();
+</script>
 
 <footer>
   <div class="wrap">

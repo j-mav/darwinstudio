@@ -197,6 +197,22 @@ code { font-family: ui-monospace, Consolas, monospace; font-size: 0.9em; backgro
 .shots img.wide { grid-column: 1 / -1; justify-self: center; width: auto; } /* the gameplay GIF, at its own size */
 @media (max-width: 52rem) { .shots { grid-template-columns: minmax(0, 1fr); } }
 
+/* coffee dialog before a download: a faceplate over the dimmed room */
+.gate {
+  width: min(30rem, calc(100vw - 2rem)); max-height: calc(100dvh - 2rem); overflow: auto;
+  padding: 2rem 1.8rem 1.8rem; border: 1px solid var(--line); border-radius: 12px;
+  background: var(--panel); color: var(--fg); text-align: center;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7);
+}
+.gate[open] { display: grid; gap: 1rem; justify-items: center; }
+.gate::backdrop { background: rgba(5, 6, 7, 0.75); backdrop-filter: blur(3px); }
+.gate h2 { font-size: var(--step-2); }
+.gate .coffee-qr { width: 7rem; height: 7rem; }
+.gate-close { position: absolute; top: 0.5rem; right: 0.6rem; margin: 0; }
+.gate-close button { background: none; border: 0; color: var(--muted); font-size: 1.6rem; line-height: 1; cursor: pointer; padding: 0.3rem 0.5rem; }
+.gate-close button:hover { color: var(--steel); }
+.gate-actions { margin-top: 0.4rem; }
+
 footer { border-top: 1px solid var(--line); color: var(--muted); font-size: 0.9rem; }
 footer .wrap { padding-block: 2rem; display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
 
