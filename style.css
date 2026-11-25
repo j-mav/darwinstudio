@@ -148,15 +148,20 @@ ol, ul.plain { margin: 0; padding-left: 1.3rem; display: grid; gap: 0.45rem; }
 .req { color: var(--muted); }
 code { font-family: ui-monospace, Consolas, monospace; font-size: 0.9em; background: var(--panel); padding: 0.1em 0.35em; border-radius: 4px; overflow-wrap: anywhere; }
 
-/* about + support */
-.about { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2.5rem; }
-.about > div { display: grid; gap: 0.9rem; align-content: start; min-width: 0; }
-.about blockquote { margin: 0; font-size: var(--step-1); line-height: 1.55; color: var(--steel); }
+/* about page: the front page, just the studio's own words */
+.topbar nav a[aria-current="page"] { color: var(--steel); text-decoration: underline; text-decoration-color: var(--lamp); text-underline-offset: 0.45em; }
+.about-page .wrap { max-width: 40rem; padding-block: clamp(3rem, 12vh, 8rem); display: grid; gap: 2rem; }
+.about-logo { width: min(22rem, 100%); filter: invert(0.94); }
+.about-text { font-size: var(--step-1); line-height: 1.6; color: var(--steel); }
+.coffee { display: grid; justify-items: start; gap: 1.1rem; }
+.coffee-button { width: 13rem; height: auto; border-radius: 10px; }
+.coffee-qr { width: 9rem; height: 9rem; image-rendering: pixelated; border-radius: 6px; }
+#support .section-head { margin-bottom: 0; gap: 1rem; }
 
 footer { border-top: 1px solid var(--line); color: var(--muted); font-size: 0.9rem; }
 footer .wrap { padding-block: 2rem; display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
 
 @media (max-width: 52rem) {
-  .bundle-grid, .plugin-body, .cols, .about { grid-template-columns: minmax(0, 1fr); gap: 1.8rem; }
+  .bundle-grid, .plugin-body, .cols { grid-template-columns: minmax(0, 1fr); gap: 1.8rem; }
   .bundle-grid video { justify-self: start; }
 }
