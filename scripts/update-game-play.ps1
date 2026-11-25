@@ -21,6 +21,8 @@ if (-not $Zip) {
 if (-not (Test-Path -LiteralPath $Zip)) { throw "Browser build not found: $Zip" }
 
 $play = Join-Path $site 'play'
+# The working copy normally leaves play/ out (sparse checkout, keeps ~250 MB out of Dropbox). Bring it back first.
+if ((git -C $site config --get core.sparseCheckout) -eq 'true') { git -C $site sparse-checkout disable }
 # Unpack outside Dropbox, then mirror into play/: only changed files are touched (less Dropbox churn), and
 # robocopy retries files Dropbox has locked while it syncs.
 $stage = Join-Path ([IO.Path]::GetTempPath()) 'frtd-play-stage'
@@ -39,3 +41,4 @@ if ($html -notmatch 'GAME_MODE = "win"') { throw "play/index.html is not the ful
 $v = [regex]::Match($html, 'id="titleVersion"[^>]*>\s*v\.?\s*([\d.]+)').Groups[1].Value
 $files = Get-ChildItem $play -Recurse -File
 "play/ updated: v$v, {0} files, {1} MB, largest {2:N1} MB" -f $files.Count, [math]::Round(($files | Measure-Object Length -Sum).Sum / 1MB), (($files | Measure-Object Length -Max).Maximum / 1MB)
+'After commit + push, drop play/ from the working copy again:  git sparse-checkout set --no-cone "/*" "!/play/"'
