@@ -156,7 +156,6 @@ code { font-family: ui-monospace, Consolas, monospace; font-size: 0.9em; backgro
 #support .coffee { margin-top: 2rem; }
 .promo { position: relative; }
 .promo video { width: 100%; background: #000; }
-.promo-sound { position: absolute; left: 50%; top: 1rem; transform: translateX(-50%); }
 .coffee-button { width: 13rem; height: auto; border-radius: 10px; }
 .coffee-qr { width: 9rem; height: 9rem; image-rendering: pixelated; border-radius: 6px; }
 #support .section-head { margin-bottom: 0; gap: 1rem; }
