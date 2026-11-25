@@ -151,9 +151,9 @@ code { font-family: ui-monospace, Consolas, monospace; font-size: 0.9em; backgro
 /* about page: the front page, just the studio's own words */
 .topbar nav a[aria-current="page"] { color: var(--steel); text-decoration: underline; text-decoration-color: var(--lamp); text-underline-offset: 0.45em; }
 .about-page .wrap { max-width: 40rem; padding-block: clamp(3rem, 12vh, 8rem); display: grid; gap: 2rem; }
-.about-logo { width: min(22rem, 100%); filter: invert(0.94); }
+.about-logo { width: min(22rem, 100%); filter: invert(0.94); justify-self: center; }
 .about-text { font-size: var(--step-1); line-height: 1.6; color: var(--steel); }
-.coffee { display: grid; justify-items: start; gap: 1.1rem; }
+.coffee { display: grid; justify-items: center; gap: 1.1rem; }
 .coffee-button { width: 13rem; height: auto; border-radius: 10px; }
 .coffee-qr { width: 9rem; height: 9rem; image-rendering: pixelated; border-radius: 6px; }
 #support .section-head { margin-bottom: 0; gap: 1rem; }

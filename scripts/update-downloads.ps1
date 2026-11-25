@@ -54,8 +54,14 @@ if ($DryRun) {
 
 if (-not $PageOnly) {
     $notes = "Installers for the Darwin Studio Set & Forget plugins. See https://j-mav.github.io/darwinstudio/"
-    & $gh release create $Tag @($files.FullName) --repo $Repo --title "Downloads $($Tag -replace '^downloads-','')" --notes $notes
-    if ($LASTEXITCODE -ne 0) { throw "gh release create failed ($LASTEXITCODE)" }
+    # gh reads "path#text" as a file plus a display label, and the workspace path holds "#Documents".
+    # So run from Share\all-latest and pass paths relative to it, which have no "#".
+    $rel = $files | ForEach-Object { if ($_.DirectoryName -eq (Resolve-Path $share).Path) { $_.Name } else { "individual\$($_.Name)" } }
+    Push-Location $share
+    try {
+        & $gh release create $Tag @($rel) --repo $Repo --title "Downloads $($Tag -replace '^downloads-','')" --notes $notes
+        if ($LASTEXITCODE -ne 0) { throw "gh release create failed ($LASTEXITCODE)" }
+    } finally { Pop-Location }
 }
 
 [IO.File]::WriteAllText($page, $html, (New-Object Text.UTF8Encoding($false)))
