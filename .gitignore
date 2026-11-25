@@ -1,0 +1,7 @@
+__pycache__/
+*.tmp
+Thumbs.db
+.DS_Store
+# local working notes (this repo is public)
+CLAUDE.md
+scripts/build-assets.py
