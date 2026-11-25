@@ -176,7 +176,6 @@ code { font-family: ui-monospace, Consolas, monospace; font-size: 0.9em; backgro
   box-shadow: 0 0 8px var(--lamp), 0 0 24px rgba(109, 180, 255, 0.55), inset 0 0 14px rgba(109, 180, 255, 0.45);
   animation: neon-on 1.6s steps(1, end) 0.3s both, neon-hum 2.8s ease-in-out 1.9s infinite;
 }
-.free-sub { font-family: var(--engrave); text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.78rem; color: var(--muted); margin-top: 0.5rem; }
 @keyframes neon-on {
   0%, 12%, 20%, 34%, 40% { opacity: 0.15; }
   8%, 16%, 28%, 37%, 100% { opacity: 1; }
