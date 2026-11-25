@@ -165,12 +165,12 @@ code { font-family: ui-monospace, Consolas, monospace; font-size: 0.9em; backgro
 .free-word {
   font-family: var(--display);
   font-weight: 600;
-  font-size: clamp(3.4rem, 8vw, 4.6rem);
+  font-size: clamp(1.7rem, 4vw, 2.3rem);
   line-height: 1;
   letter-spacing: 0.08em;
   padding: 0.12em 0.3em 0.1em 0.38em;
   color: #eaf5ff;
-  border: 3px solid #9fd0ff;
+  border: 2px solid #9fd0ff;
   border-radius: 0.28em;
   text-shadow: 0 0 4px #fff, 0 0 12px var(--lamp), 0 0 28px var(--lamp), 0 0 60px rgba(109, 180, 255, 0.7);
   box-shadow: 0 0 8px var(--lamp), 0 0 24px rgba(109, 180, 255, 0.55), inset 0 0 14px rgba(109, 180, 255, 0.45);
