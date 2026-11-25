@@ -1,0 +1,590 @@
+{
+  "layer": "ndvi-grid",
+  "gridWidth": 512,
+  "gridHeight": 201,
+  "basemapWidth": 23170,
+  "basemapHeight": 9086,
+  "tileSizePx": 2048,
+  "rows": 5,
+  "cols": 12,
+  "encoding": "uint8-base64",
+  "source": "NDVI.jpg",
+  "target": "basemap.jpg",
+  "alignment": {
+    "mode": "controlPoints",
+    "controlPoints": [
+      {
+        "bmPct": {
+          "x": 20.81,
+          "y": 76.12
+        },
+        "ndviPx": {
+          "x": 1169,
+          "y": 1653
+        }
+      },
+      {
+        "bmPct": {
+          "x": 80.52,
+          "y": 2.01
+        },
+        "ndviPx": {
+          "x": 3972,
+          "y": 289
+        }
+      },
+      {
+        "bmPct": {
+          "x": 81.64,
+          "y": 92
+        },
+        "ndviPx": {
+          "x": 4016,
+          "y": 1939
+        }
+      }
+    ]
+  },
+  "tiles": [
+    {
+      "row": 0,
+      "col": 0,
+      "gx": 0,
+      "gy": 0,
+      "width": 46,
+      "height": 46,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r0_c0.json"
+    },
+    {
+      "row": 0,
+      "col": 1,
+      "gx": 45,
+      "gy": 0,
+      "width": 46,
+      "height": 46,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r0_c1.json"
+    },
+    {
+      "row": 0,
+      "col": 2,
+      "gx": 90,
+      "gy": 0,
+      "width": 46,
+      "height": 46,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r0_c2.json"
+    },
+    {
+      "row": 0,
+      "col": 3,
+      "gx": 135,
+      "gy": 0,
+      "width": 47,
+      "height": 46,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r0_c3.json"
+    },
+    {
+      "row": 0,
+      "col": 4,
+      "gx": 181,
+      "gy": 0,
+      "width": 46,
+      "height": 46,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r0_c4.json"
+    },
+    {
+      "row": 0,
+      "col": 5,
+      "gx": 226,
+      "gy": 0,
+      "width": 46,
+      "height": 46,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r0_c5.json"
+    },
+    {
+      "row": 0,
+      "col": 6,
+      "gx": 271,
+      "gy": 0,
+      "width": 46,
+      "height": 46,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r0_c6.json"
+    },
+    {
+      "row": 0,
+      "col": 7,
+      "gx": 316,
+      "gy": 0,
+      "width": 47,
+      "height": 46,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r0_c7.json"
+    },
+    {
+      "row": 0,
+      "col": 8,
+      "gx": 362,
+      "gy": 0,
+      "width": 46,
+      "height": 46,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r0_c8.json"
+    },
+    {
+      "row": 0,
+      "col": 9,
+      "gx": 407,
+      "gy": 0,
+      "width": 46,
+      "height": 46,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r0_c9.json"
+    },
+    {
+      "row": 0,
+      "col": 10,
+      "gx": 452,
+      "gy": 0,
+      "width": 46,
+      "height": 46,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r0_c10.json"
+    },
+    {
+      "row": 0,
+      "col": 11,
+      "gx": 497,
+      "gy": 0,
+      "width": 15,
+      "height": 46,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r0_c11.json"
+    },
+    {
+      "row": 1,
+      "col": 0,
+      "gx": 0,
+      "gy": 45,
+      "width": 46,
+      "height": 46,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r1_c0.json"
+    },
+    {
+      "row": 1,
+      "col": 1,
+      "gx": 45,
+      "gy": 45,
+      "width": 46,
+      "height": 46,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r1_c1.json"
+    },
+    {
+      "row": 1,
+      "col": 2,
+      "gx": 90,
+      "gy": 45,
+      "width": 46,
+      "height": 46,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r1_c2.json"
+    },
+    {
+      "row": 1,
+      "col": 3,
+      "gx": 135,
+      "gy": 45,
+      "width": 47,
+      "height": 46,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r1_c3.json"
+    },
+    {
+      "row": 1,
+      "col": 4,
+      "gx": 181,
+      "gy": 45,
+      "width": 46,
+      "height": 46,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r1_c4.json"
+    },
+    {
+      "row": 1,
+      "col": 5,
+      "gx": 226,
+      "gy": 45,
+      "width": 46,
+      "height": 46,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r1_c5.json"
+    },
+    {
+      "row": 1,
+      "col": 6,
+      "gx": 271,
+      "gy": 45,
+      "width": 46,
+      "height": 46,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r1_c6.json"
+    },
+    {
+      "row": 1,
+      "col": 7,
+      "gx": 316,
+      "gy": 45,
+      "width": 47,
+      "height": 46,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r1_c7.json"
+    },
+    {
+      "row": 1,
+      "col": 8,
+      "gx": 362,
+      "gy": 45,
+      "width": 46,
+      "height": 46,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r1_c8.json"
+    },
+    {
+      "row": 1,
+      "col": 9,
+      "gx": 407,
+      "gy": 45,
+      "width": 46,
+      "height": 46,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r1_c9.json"
+    },
+    {
+      "row": 1,
+      "col": 10,
+      "gx": 452,
+      "gy": 45,
+      "width": 46,
+      "height": 46,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r1_c10.json"
+    },
+    {
+      "row": 1,
+      "col": 11,
+      "gx": 497,
+      "gy": 45,
+      "width": 15,
+      "height": 46,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r1_c11.json"
+    },
+    {
+      "row": 2,
+      "col": 0,
+      "gx": 0,
+      "gy": 90,
+      "width": 46,
+      "height": 46,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r2_c0.json"
+    },
+    {
+      "row": 2,
+      "col": 1,
+      "gx": 45,
+      "gy": 90,
+      "width": 46,
+      "height": 46,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r2_c1.json"
+    },
+    {
+      "row": 2,
+      "col": 2,
+      "gx": 90,
+      "gy": 90,
+      "width": 46,
+      "height": 46,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r2_c2.json"
+    },
+    {
+      "row": 2,
+      "col": 3,
+      "gx": 135,
+      "gy": 90,
+      "width": 47,
+      "height": 46,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r2_c3.json"
+    },
+    {
+      "row": 2,
+      "col": 4,
+      "gx": 181,
+      "gy": 90,
+      "width": 46,
+      "height": 46,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r2_c4.json"
+    },
+    {
+      "row": 2,
+      "col": 5,
+      "gx": 226,
+      "gy": 90,
+      "width": 46,
+      "height": 46,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r2_c5.json"
+    },
+    {
+      "row": 2,
+      "col": 6,
+      "gx": 271,
+      "gy": 90,
+      "width": 46,
+      "height": 46,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r2_c6.json"
+    },
+    {
+      "row": 2,
+      "col": 7,
+      "gx": 316,
+      "gy": 90,
+      "width": 47,
+      "height": 46,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r2_c7.json"
+    },
+    {
+      "row": 2,
+      "col": 8,
+      "gx": 362,
+      "gy": 90,
+      "width": 46,
+      "height": 46,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r2_c8.json"
+    },
+    {
+      "row": 2,
+      "col": 9,
+      "gx": 407,
+      "gy": 90,
+      "width": 46,
+      "height": 46,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r2_c9.json"
+    },
+    {
+      "row": 2,
+      "col": 10,
+      "gx": 452,
+      "gy": 90,
+      "width": 46,
+      "height": 46,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r2_c10.json"
+    },
+    {
+      "row": 2,
+      "col": 11,
+      "gx": 497,
+      "gy": 90,
+      "width": 15,
+      "height": 46,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r2_c11.json"
+    },
+    {
+      "row": 3,
+      "col": 0,
+      "gx": 0,
+      "gy": 135,
+      "width": 46,
+      "height": 47,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r3_c0.json"
+    },
+    {
+      "row": 3,
+      "col": 1,
+      "gx": 45,
+      "gy": 135,
+      "width": 46,
+      "height": 47,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r3_c1.json"
+    },
+    {
+      "row": 3,
+      "col": 2,
+      "gx": 90,
+      "gy": 135,
+      "width": 46,
+      "height": 47,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r3_c2.json"
+    },
+    {
+      "row": 3,
+      "col": 3,
+      "gx": 135,
+      "gy": 135,
+      "width": 47,
+      "height": 47,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r3_c3.json"
+    },
+    {
+      "row": 3,
+      "col": 4,
+      "gx": 181,
+      "gy": 135,
+      "width": 46,
+      "height": 47,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r3_c4.json"
+    },
+    {
+      "row": 3,
+      "col": 5,
+      "gx": 226,
+      "gy": 135,
+      "width": 46,
+      "height": 47,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r3_c5.json"
+    },
+    {
+      "row": 3,
+      "col": 6,
+      "gx": 271,
+      "gy": 135,
+      "width": 46,
+      "height": 47,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r3_c6.json"
+    },
+    {
+      "row": 3,
+      "col": 7,
+      "gx": 316,
+      "gy": 135,
+      "width": 47,
+      "height": 47,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r3_c7.json"
+    },
+    {
+      "row": 3,
+      "col": 8,
+      "gx": 362,
+      "gy": 135,
+      "width": 46,
+      "height": 47,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r3_c8.json"
+    },
+    {
+      "row": 3,
+      "col": 9,
+      "gx": 407,
+      "gy": 135,
+      "width": 46,
+      "height": 47,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r3_c9.json"
+    },
+    {
+      "row": 3,
+      "col": 10,
+      "gx": 452,
+      "gy": 135,
+      "width": 46,
+      "height": 47,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r3_c10.json"
+    },
+    {
+      "row": 3,
+      "col": 11,
+      "gx": 497,
+      "gy": 135,
+      "width": 15,
+      "height": 47,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r3_c11.json"
+    },
+    {
+      "row": 4,
+      "col": 0,
+      "gx": 0,
+      "gy": 181,
+      "width": 46,
+      "height": 20,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r4_c0.json"
+    },
+    {
+      "row": 4,
+      "col": 1,
+      "gx": 45,
+      "gy": 181,
+      "width": 46,
+      "height": 20,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r4_c1.json"
+    },
+    {
+      "row": 4,
+      "col": 2,
+      "gx": 90,
+      "gy": 181,
+      "width": 46,
+      "height": 20,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r4_c2.json"
+    },
+    {
+      "row": 4,
+      "col": 3,
+      "gx": 135,
+      "gy": 181,
+      "width": 47,
+      "height": 20,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r4_c3.json"
+    },
+    {
+      "row": 4,
+      "col": 4,
+      "gx": 181,
+      "gy": 181,
+      "width": 46,
+      "height": 20,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r4_c4.json"
+    },
+    {
+      "row": 4,
+      "col": 5,
+      "gx": 226,
+      "gy": 181,
+      "width": 46,
+      "height": 20,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r4_c5.json"
+    },
+    {
+      "row": 4,
+      "col": 6,
+      "gx": 271,
+      "gy": 181,
+      "width": 46,
+      "height": 20,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r4_c6.json"
+    },
+    {
+      "row": 4,
+      "col": 7,
+      "gx": 316,
+      "gy": 181,
+      "width": 47,
+      "height": 20,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r4_c7.json"
+    },
+    {
+      "row": 4,
+      "col": 8,
+      "gx": 362,
+      "gy": 181,
+      "width": 46,
+      "height": 20,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r4_c8.json"
+    },
+    {
+      "row": 4,
+      "col": 9,
+      "gx": 407,
+      "gy": 181,
+      "width": 46,
+      "height": 20,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r4_c9.json"
+    },
+    {
+      "row": 4,
+      "col": 10,
+      "gx": 452,
+      "gy": 181,
+      "width": 46,
+      "height": 20,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r4_c10.json"
+    },
+    {
+      "row": 4,
+      "col": 11,
+      "gx": 497,
+      "gy": 181,
+      "width": 15,
+      "height": 20,
+      "src": "json-tiles/ndvi-grid/ndvi-grid_r4_c11.json"
+    }
+  ]
+}

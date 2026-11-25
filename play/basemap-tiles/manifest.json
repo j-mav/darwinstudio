@@ -1,0 +1,1460 @@
+{
+  "width": 23170,
+  "height": 9086,
+  "tileSize": 1024,
+  "rows": 9,
+  "cols": 23,
+  "ext": "webp",
+  "prefix": "basemap-tiles/basemap",
+  "tiles": [
+    {
+      "row": 0,
+      "col": 0,
+      "src": "basemap-tiles/basemap_r0_c0.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 0,
+      "col": 1,
+      "src": "basemap-tiles/basemap_r0_c1.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 0,
+      "col": 2,
+      "src": "basemap-tiles/basemap_r0_c2.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 0,
+      "col": 3,
+      "src": "basemap-tiles/basemap_r0_c3.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 0,
+      "col": 4,
+      "src": "basemap-tiles/basemap_r0_c4.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 0,
+      "col": 5,
+      "src": "basemap-tiles/basemap_r0_c5.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 0,
+      "col": 6,
+      "src": "basemap-tiles/basemap_r0_c6.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 0,
+      "col": 7,
+      "src": "basemap-tiles/basemap_r0_c7.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 0,
+      "col": 8,
+      "src": "basemap-tiles/basemap_r0_c8.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 0,
+      "col": 9,
+      "src": "basemap-tiles/basemap_r0_c9.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 0,
+      "col": 10,
+      "src": "basemap-tiles/basemap_r0_c10.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 0,
+      "col": 11,
+      "src": "basemap-tiles/basemap_r0_c11.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 0,
+      "col": 12,
+      "src": "basemap-tiles/basemap_r0_c12.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 0,
+      "col": 13,
+      "src": "basemap-tiles/basemap_r0_c13.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 0,
+      "col": 14,
+      "src": "basemap-tiles/basemap_r0_c14.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 0,
+      "col": 15,
+      "src": "basemap-tiles/basemap_r0_c15.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 0,
+      "col": 16,
+      "src": "basemap-tiles/basemap_r0_c16.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 0,
+      "col": 17,
+      "src": "basemap-tiles/basemap_r0_c17.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 0,
+      "col": 18,
+      "src": "basemap-tiles/basemap_r0_c18.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 0,
+      "col": 19,
+      "src": "basemap-tiles/basemap_r0_c19.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 0,
+      "col": 20,
+      "src": "basemap-tiles/basemap_r0_c20.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 0,
+      "col": 21,
+      "src": "basemap-tiles/basemap_r0_c21.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 0,
+      "col": 22,
+      "src": "basemap-tiles/basemap_r0_c22.webp",
+      "width": 642,
+      "height": 1024
+    },
+    {
+      "row": 1,
+      "col": 0,
+      "src": "basemap-tiles/basemap_r1_c0.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 1,
+      "col": 1,
+      "src": "basemap-tiles/basemap_r1_c1.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 1,
+      "col": 2,
+      "src": "basemap-tiles/basemap_r1_c2.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 1,
+      "col": 3,
+      "src": "basemap-tiles/basemap_r1_c3.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 1,
+      "col": 4,
+      "src": "basemap-tiles/basemap_r1_c4.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 1,
+      "col": 5,
+      "src": "basemap-tiles/basemap_r1_c5.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 1,
+      "col": 6,
+      "src": "basemap-tiles/basemap_r1_c6.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 1,
+      "col": 7,
+      "src": "basemap-tiles/basemap_r1_c7.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 1,
+      "col": 8,
+      "src": "basemap-tiles/basemap_r1_c8.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 1,
+      "col": 9,
+      "src": "basemap-tiles/basemap_r1_c9.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 1,
+      "col": 10,
+      "src": "basemap-tiles/basemap_r1_c10.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 1,
+      "col": 11,
+      "src": "basemap-tiles/basemap_r1_c11.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 1,
+      "col": 12,
+      "src": "basemap-tiles/basemap_r1_c12.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 1,
+      "col": 13,
+      "src": "basemap-tiles/basemap_r1_c13.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 1,
+      "col": 14,
+      "src": "basemap-tiles/basemap_r1_c14.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 1,
+      "col": 15,
+      "src": "basemap-tiles/basemap_r1_c15.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 1,
+      "col": 16,
+      "src": "basemap-tiles/basemap_r1_c16.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 1,
+      "col": 17,
+      "src": "basemap-tiles/basemap_r1_c17.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 1,
+      "col": 18,
+      "src": "basemap-tiles/basemap_r1_c18.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 1,
+      "col": 19,
+      "src": "basemap-tiles/basemap_r1_c19.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 1,
+      "col": 20,
+      "src": "basemap-tiles/basemap_r1_c20.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 1,
+      "col": 21,
+      "src": "basemap-tiles/basemap_r1_c21.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 1,
+      "col": 22,
+      "src": "basemap-tiles/basemap_r1_c22.webp",
+      "width": 642,
+      "height": 1024
+    },
+    {
+      "row": 2,
+      "col": 0,
+      "src": "basemap-tiles/basemap_r2_c0.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 2,
+      "col": 1,
+      "src": "basemap-tiles/basemap_r2_c1.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 2,
+      "col": 2,
+      "src": "basemap-tiles/basemap_r2_c2.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 2,
+      "col": 3,
+      "src": "basemap-tiles/basemap_r2_c3.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 2,
+      "col": 4,
+      "src": "basemap-tiles/basemap_r2_c4.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 2,
+      "col": 5,
+      "src": "basemap-tiles/basemap_r2_c5.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 2,
+      "col": 6,
+      "src": "basemap-tiles/basemap_r2_c6.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 2,
+      "col": 7,
+      "src": "basemap-tiles/basemap_r2_c7.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 2,
+      "col": 8,
+      "src": "basemap-tiles/basemap_r2_c8.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 2,
+      "col": 9,
+      "src": "basemap-tiles/basemap_r2_c9.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 2,
+      "col": 10,
+      "src": "basemap-tiles/basemap_r2_c10.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 2,
+      "col": 11,
+      "src": "basemap-tiles/basemap_r2_c11.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 2,
+      "col": 12,
+      "src": "basemap-tiles/basemap_r2_c12.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 2,
+      "col": 13,
+      "src": "basemap-tiles/basemap_r2_c13.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 2,
+      "col": 14,
+      "src": "basemap-tiles/basemap_r2_c14.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 2,
+      "col": 15,
+      "src": "basemap-tiles/basemap_r2_c15.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 2,
+      "col": 16,
+      "src": "basemap-tiles/basemap_r2_c16.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 2,
+      "col": 17,
+      "src": "basemap-tiles/basemap_r2_c17.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 2,
+      "col": 18,
+      "src": "basemap-tiles/basemap_r2_c18.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 2,
+      "col": 19,
+      "src": "basemap-tiles/basemap_r2_c19.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 2,
+      "col": 20,
+      "src": "basemap-tiles/basemap_r2_c20.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 2,
+      "col": 21,
+      "src": "basemap-tiles/basemap_r2_c21.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 2,
+      "col": 22,
+      "src": "basemap-tiles/basemap_r2_c22.webp",
+      "width": 642,
+      "height": 1024
+    },
+    {
+      "row": 3,
+      "col": 0,
+      "src": "basemap-tiles/basemap_r3_c0.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 3,
+      "col": 1,
+      "src": "basemap-tiles/basemap_r3_c1.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 3,
+      "col": 2,
+      "src": "basemap-tiles/basemap_r3_c2.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 3,
+      "col": 3,
+      "src": "basemap-tiles/basemap_r3_c3.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 3,
+      "col": 4,
+      "src": "basemap-tiles/basemap_r3_c4.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 3,
+      "col": 5,
+      "src": "basemap-tiles/basemap_r3_c5.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 3,
+      "col": 6,
+      "src": "basemap-tiles/basemap_r3_c6.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 3,
+      "col": 7,
+      "src": "basemap-tiles/basemap_r3_c7.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 3,
+      "col": 8,
+      "src": "basemap-tiles/basemap_r3_c8.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 3,
+      "col": 9,
+      "src": "basemap-tiles/basemap_r3_c9.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 3,
+      "col": 10,
+      "src": "basemap-tiles/basemap_r3_c10.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 3,
+      "col": 11,
+      "src": "basemap-tiles/basemap_r3_c11.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 3,
+      "col": 12,
+      "src": "basemap-tiles/basemap_r3_c12.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 3,
+      "col": 13,
+      "src": "basemap-tiles/basemap_r3_c13.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 3,
+      "col": 14,
+      "src": "basemap-tiles/basemap_r3_c14.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 3,
+      "col": 15,
+      "src": "basemap-tiles/basemap_r3_c15.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 3,
+      "col": 16,
+      "src": "basemap-tiles/basemap_r3_c16.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 3,
+      "col": 17,
+      "src": "basemap-tiles/basemap_r3_c17.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 3,
+      "col": 18,
+      "src": "basemap-tiles/basemap_r3_c18.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 3,
+      "col": 19,
+      "src": "basemap-tiles/basemap_r3_c19.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 3,
+      "col": 20,
+      "src": "basemap-tiles/basemap_r3_c20.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 3,
+      "col": 21,
+      "src": "basemap-tiles/basemap_r3_c21.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 3,
+      "col": 22,
+      "src": "basemap-tiles/basemap_r3_c22.webp",
+      "width": 642,
+      "height": 1024
+    },
+    {
+      "row": 4,
+      "col": 0,
+      "src": "basemap-tiles/basemap_r4_c0.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 4,
+      "col": 1,
+      "src": "basemap-tiles/basemap_r4_c1.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 4,
+      "col": 2,
+      "src": "basemap-tiles/basemap_r4_c2.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 4,
+      "col": 3,
+      "src": "basemap-tiles/basemap_r4_c3.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 4,
+      "col": 4,
+      "src": "basemap-tiles/basemap_r4_c4.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 4,
+      "col": 5,
+      "src": "basemap-tiles/basemap_r4_c5.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 4,
+      "col": 6,
+      "src": "basemap-tiles/basemap_r4_c6.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 4,
+      "col": 7,
+      "src": "basemap-tiles/basemap_r4_c7.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 4,
+      "col": 8,
+      "src": "basemap-tiles/basemap_r4_c8.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 4,
+      "col": 9,
+      "src": "basemap-tiles/basemap_r4_c9.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 4,
+      "col": 10,
+      "src": "basemap-tiles/basemap_r4_c10.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 4,
+      "col": 11,
+      "src": "basemap-tiles/basemap_r4_c11.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 4,
+      "col": 12,
+      "src": "basemap-tiles/basemap_r4_c12.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 4,
+      "col": 13,
+      "src": "basemap-tiles/basemap_r4_c13.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 4,
+      "col": 14,
+      "src": "basemap-tiles/basemap_r4_c14.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 4,
+      "col": 15,
+      "src": "basemap-tiles/basemap_r4_c15.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 4,
+      "col": 16,
+      "src": "basemap-tiles/basemap_r4_c16.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 4,
+      "col": 17,
+      "src": "basemap-tiles/basemap_r4_c17.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 4,
+      "col": 18,
+      "src": "basemap-tiles/basemap_r4_c18.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 4,
+      "col": 19,
+      "src": "basemap-tiles/basemap_r4_c19.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 4,
+      "col": 20,
+      "src": "basemap-tiles/basemap_r4_c20.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 4,
+      "col": 21,
+      "src": "basemap-tiles/basemap_r4_c21.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 4,
+      "col": 22,
+      "src": "basemap-tiles/basemap_r4_c22.webp",
+      "width": 642,
+      "height": 1024
+    },
+    {
+      "row": 5,
+      "col": 0,
+      "src": "basemap-tiles/basemap_r5_c0.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 5,
+      "col": 1,
+      "src": "basemap-tiles/basemap_r5_c1.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 5,
+      "col": 2,
+      "src": "basemap-tiles/basemap_r5_c2.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 5,
+      "col": 3,
+      "src": "basemap-tiles/basemap_r5_c3.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 5,
+      "col": 4,
+      "src": "basemap-tiles/basemap_r5_c4.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 5,
+      "col": 5,
+      "src": "basemap-tiles/basemap_r5_c5.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 5,
+      "col": 6,
+      "src": "basemap-tiles/basemap_r5_c6.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 5,
+      "col": 7,
+      "src": "basemap-tiles/basemap_r5_c7.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 5,
+      "col": 8,
+      "src": "basemap-tiles/basemap_r5_c8.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 5,
+      "col": 9,
+      "src": "basemap-tiles/basemap_r5_c9.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 5,
+      "col": 10,
+      "src": "basemap-tiles/basemap_r5_c10.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 5,
+      "col": 11,
+      "src": "basemap-tiles/basemap_r5_c11.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 5,
+      "col": 12,
+      "src": "basemap-tiles/basemap_r5_c12.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 5,
+      "col": 13,
+      "src": "basemap-tiles/basemap_r5_c13.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 5,
+      "col": 14,
+      "src": "basemap-tiles/basemap_r5_c14.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 5,
+      "col": 15,
+      "src": "basemap-tiles/basemap_r5_c15.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 5,
+      "col": 16,
+      "src": "basemap-tiles/basemap_r5_c16.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 5,
+      "col": 17,
+      "src": "basemap-tiles/basemap_r5_c17.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 5,
+      "col": 18,
+      "src": "basemap-tiles/basemap_r5_c18.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 5,
+      "col": 19,
+      "src": "basemap-tiles/basemap_r5_c19.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 5,
+      "col": 20,
+      "src": "basemap-tiles/basemap_r5_c20.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 5,
+      "col": 21,
+      "src": "basemap-tiles/basemap_r5_c21.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 5,
+      "col": 22,
+      "src": "basemap-tiles/basemap_r5_c22.webp",
+      "width": 642,
+      "height": 1024
+    },
+    {
+      "row": 6,
+      "col": 0,
+      "src": "basemap-tiles/basemap_r6_c0.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 6,
+      "col": 1,
+      "src": "basemap-tiles/basemap_r6_c1.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 6,
+      "col": 2,
+      "src": "basemap-tiles/basemap_r6_c2.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 6,
+      "col": 3,
+      "src": "basemap-tiles/basemap_r6_c3.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 6,
+      "col": 4,
+      "src": "basemap-tiles/basemap_r6_c4.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 6,
+      "col": 5,
+      "src": "basemap-tiles/basemap_r6_c5.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 6,
+      "col": 6,
+      "src": "basemap-tiles/basemap_r6_c6.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 6,
+      "col": 7,
+      "src": "basemap-tiles/basemap_r6_c7.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 6,
+      "col": 8,
+      "src": "basemap-tiles/basemap_r6_c8.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 6,
+      "col": 9,
+      "src": "basemap-tiles/basemap_r6_c9.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 6,
+      "col": 10,
+      "src": "basemap-tiles/basemap_r6_c10.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 6,
+      "col": 11,
+      "src": "basemap-tiles/basemap_r6_c11.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 6,
+      "col": 12,
+      "src": "basemap-tiles/basemap_r6_c12.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 6,
+      "col": 13,
+      "src": "basemap-tiles/basemap_r6_c13.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 6,
+      "col": 14,
+      "src": "basemap-tiles/basemap_r6_c14.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 6,
+      "col": 15,
+      "src": "basemap-tiles/basemap_r6_c15.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 6,
+      "col": 16,
+      "src": "basemap-tiles/basemap_r6_c16.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 6,
+      "col": 17,
+      "src": "basemap-tiles/basemap_r6_c17.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 6,
+      "col": 18,
+      "src": "basemap-tiles/basemap_r6_c18.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 6,
+      "col": 19,
+      "src": "basemap-tiles/basemap_r6_c19.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 6,
+      "col": 20,
+      "src": "basemap-tiles/basemap_r6_c20.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 6,
+      "col": 21,
+      "src": "basemap-tiles/basemap_r6_c21.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 6,
+      "col": 22,
+      "src": "basemap-tiles/basemap_r6_c22.webp",
+      "width": 642,
+      "height": 1024
+    },
+    {
+      "row": 7,
+      "col": 0,
+      "src": "basemap-tiles/basemap_r7_c0.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 7,
+      "col": 1,
+      "src": "basemap-tiles/basemap_r7_c1.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 7,
+      "col": 2,
+      "src": "basemap-tiles/basemap_r7_c2.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 7,
+      "col": 3,
+      "src": "basemap-tiles/basemap_r7_c3.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 7,
+      "col": 4,
+      "src": "basemap-tiles/basemap_r7_c4.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 7,
+      "col": 5,
+      "src": "basemap-tiles/basemap_r7_c5.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 7,
+      "col": 6,
+      "src": "basemap-tiles/basemap_r7_c6.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 7,
+      "col": 7,
+      "src": "basemap-tiles/basemap_r7_c7.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 7,
+      "col": 8,
+      "src": "basemap-tiles/basemap_r7_c8.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 7,
+      "col": 9,
+      "src": "basemap-tiles/basemap_r7_c9.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 7,
+      "col": 10,
+      "src": "basemap-tiles/basemap_r7_c10.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 7,
+      "col": 11,
+      "src": "basemap-tiles/basemap_r7_c11.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 7,
+      "col": 12,
+      "src": "basemap-tiles/basemap_r7_c12.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 7,
+      "col": 13,
+      "src": "basemap-tiles/basemap_r7_c13.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 7,
+      "col": 14,
+      "src": "basemap-tiles/basemap_r7_c14.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 7,
+      "col": 15,
+      "src": "basemap-tiles/basemap_r7_c15.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 7,
+      "col": 16,
+      "src": "basemap-tiles/basemap_r7_c16.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 7,
+      "col": 17,
+      "src": "basemap-tiles/basemap_r7_c17.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 7,
+      "col": 18,
+      "src": "basemap-tiles/basemap_r7_c18.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 7,
+      "col": 19,
+      "src": "basemap-tiles/basemap_r7_c19.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 7,
+      "col": 20,
+      "src": "basemap-tiles/basemap_r7_c20.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 7,
+      "col": 21,
+      "src": "basemap-tiles/basemap_r7_c21.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "row": 7,
+      "col": 22,
+      "src": "basemap-tiles/basemap_r7_c22.webp",
+      "width": 642,
+      "height": 1024
+    },
+    {
+      "row": 8,
+      "col": 0,
+      "src": "basemap-tiles/basemap_r8_c0.webp",
+      "width": 1024,
+      "height": 894
+    },
+    {
+      "row": 8,
+      "col": 1,
+      "src": "basemap-tiles/basemap_r8_c1.webp",
+      "width": 1024,
+      "height": 894
+    },
+    {
+      "row": 8,
+      "col": 2,
+      "src": "basemap-tiles/basemap_r8_c2.webp",
+      "width": 1024,
+      "height": 894
+    },
+    {
+      "row": 8,
+      "col": 3,
+      "src": "basemap-tiles/basemap_r8_c3.webp",
+      "width": 1024,
+      "height": 894
+    },
+    {
+      "row": 8,
+      "col": 4,
+      "src": "basemap-tiles/basemap_r8_c4.webp",
+      "width": 1024,
+      "height": 894
+    },
+    {
+      "row": 8,
+      "col": 5,
+      "src": "basemap-tiles/basemap_r8_c5.webp",
+      "width": 1024,
+      "height": 894
+    },
+    {
+      "row": 8,
+      "col": 6,
+      "src": "basemap-tiles/basemap_r8_c6.webp",
+      "width": 1024,
+      "height": 894
+    },
+    {
+      "row": 8,
+      "col": 7,
+      "src": "basemap-tiles/basemap_r8_c7.webp",
+      "width": 1024,
+      "height": 894
+    },
+    {
+      "row": 8,
+      "col": 8,
+      "src": "basemap-tiles/basemap_r8_c8.webp",
+      "width": 1024,
+      "height": 894
+    },
+    {
+      "row": 8,
+      "col": 9,
+      "src": "basemap-tiles/basemap_r8_c9.webp",
+      "width": 1024,
+      "height": 894
+    },
+    {
+      "row": 8,
+      "col": 10,
+      "src": "basemap-tiles/basemap_r8_c10.webp",
+      "width": 1024,
+      "height": 894
+    },
+    {
+      "row": 8,
+      "col": 11,
+      "src": "basemap-tiles/basemap_r8_c11.webp",
+      "width": 1024,
+      "height": 894
+    },
+    {
+      "row": 8,
+      "col": 12,
+      "src": "basemap-tiles/basemap_r8_c12.webp",
+      "width": 1024,
+      "height": 894
+    },
+    {
+      "row": 8,
+      "col": 13,
+      "src": "basemap-tiles/basemap_r8_c13.webp",
+      "width": 1024,
+      "height": 894
+    },
+    {
+      "row": 8,
+      "col": 14,
+      "src": "basemap-tiles/basemap_r8_c14.webp",
+      "width": 1024,
+      "height": 894
+    },
+    {
+      "row": 8,
+      "col": 15,
+      "src": "basemap-tiles/basemap_r8_c15.webp",
+      "width": 1024,
+      "height": 894
+    },
+    {
+      "row": 8,
+      "col": 16,
+      "src": "basemap-tiles/basemap_r8_c16.webp",
+      "width": 1024,
+      "height": 894
+    },
+    {
+      "row": 8,
+      "col": 17,
+      "src": "basemap-tiles/basemap_r8_c17.webp",
+      "width": 1024,
+      "height": 894
+    },
+    {
+      "row": 8,
+      "col": 18,
+      "src": "basemap-tiles/basemap_r8_c18.webp",
+      "width": 1024,
+      "height": 894
+    },
+    {
+      "row": 8,
+      "col": 19,
+      "src": "basemap-tiles/basemap_r8_c19.webp",
+      "width": 1024,
+      "height": 894
+    },
+    {
+      "row": 8,
+      "col": 20,
+      "src": "basemap-tiles/basemap_r8_c20.webp",
+      "width": 1024,
+      "height": 894
+    },
+    {
+      "row": 8,
+      "col": 21,
+      "src": "basemap-tiles/basemap_r8_c21.webp",
+      "width": 1024,
+      "height": 894
+    },
+    {
+      "row": 8,
+      "col": 22,
+      "src": "basemap-tiles/basemap_r8_c22.webp",
+      "width": 642,
+      "height": 894
+    }
+  ]
+}

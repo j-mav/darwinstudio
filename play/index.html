@@ -1,0 +1,652 @@
+<!--
+How to run: open index.html in a modern browser (no build step).
+Map and resource logic: main.js (GameState, map rendering, resource manager).
+Assault system: main.js (AssaultBattle and related battle helpers).
+-->
+<!DOCTYPE html>
+<html lang="en" class="title-boot">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preload" as="image" href="assets/title.jpg">
+  <link rel="preload" as="font" href="assets/Fonts/Graffiti.ttf" type="font/ttf" crossorigin>
+  <link rel="preload" as="font" href="assets/Fonts/OldNewspaperTypes.ttf" type="font/ttf" crossorigin>
+  <link rel="preload" as="font" href="assets/Fonts/TypeWritersSubstitute-Black.ttf" type="font/ttf" crossorigin>
+  <link rel="preload" as="font" href="assets/Fonts/TypewriterScribbled.ttf" type="font/ttf" crossorigin>
+  <link rel="preload" as="fetch" href="assets/shaders/title-glow.glsl" crossorigin>
+  <style>
+    html.title-boot #app > :not(#titleScreenOverlay) { visibility: hidden; }
+    html.title-boot #titleScreenOverlay {
+      display: flex !important;
+      background: #000 url("assets/title.jpg") center/contain no-repeat;
+    }
+  </style>
+  <script>
+    window.GAME_MODE = "win";
+    if (window.GAME_MODE === "demo") {
+      document.documentElement.classList.add("demo-mode");
+    }
+  </script>
+  <title>From Rust 'Til Dawn</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="vendor/phaser/phaser.min.js"></script>
+  <script defer src="vendor/dice-box-threejs/dist/dice-box-threejs.umd.js"></script>
+  <script defer src="vendor/html2canvas/html2canvas.min.js"></script>
+  <script defer src="content.js"></script>
+  <!-- Favicons -->
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="assets/favicons/favicon-48x48.png">
+
+<!-- Apple Touch Icon -->
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/favicon-180x180.png">
+
+<!-- Android / PWA -->
+<link rel="icon" type="image/png" sizes="192x192" href="assets/favicons/favicon-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicons/favicon-512x512.png">
+
+<!-- Optional: theme color -->
+<meta name="theme-color" content="#f4d94a">
+
+</head>
+<body>
+  <div id="app">
+    <header class="hud">
+      <div class="title">From Rust 'Til Dawn</div>
+      <div class="turn-info">
+        <span id="turnLabel">Turn 1</span>
+        <div id="endTurnWrap" class="end-turn-wrap">
+          <button id="endTurnBtn" class="primary">End Turn</button>
+          <button id="endTurnInfoBtn" class="end-turn-info-btn" type="button" aria-label="End turn breakdown" aria-haspopup="dialog" aria-expanded="false">i</button>
+          <div id="endTurnTooltip" class="end-turn-tooltip" role="dialog" aria-hidden="true"></div>
+        </div>
+      </div>
+      <div class="hud-actions">
+        <div id="liveScoreWidget" class="live-score-widget" aria-label="Current run score">
+          <span class="live-score-label">Score</span>
+          <span id="liveScoreValue" class="live-score-value">0</span>
+        </div>
+        <div id="saveWidget" class="save-widget" aria-label="Save and load">
+          <button id="saveWidgetToggle" class="save-widget-toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Open save drawer">
+            <svg class="save-widget-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M5 3h12l3 3v15H4V4a1 1 0 0 1 1-1Zm2 2v5h10V5H7Zm9 9H8v5h8v-5Zm-8-2h8a1 1 0 0 1 1 1v7H7v-7a1 1 0 0 1 1-1Z"></path>
+              <rect x="9" y="6" width="6" height="2"></rect>
+            </svg>
+          </button>
+          <div id="saveDrawer" class="save-drawer" aria-hidden="true">
+            <div class="save-drawer-section">
+              <div class="save-drawer-title">Quicksave</div>
+              <button id="quickSaveBtn" class="primary" type="button">(Slot 1) [F8]</button>
+            </div>
+            <div class="save-drawer-section">
+              <div class="save-drawer-title">Save As</div>
+              <div class="save-slot-grid">
+                <button class="secondary save-slot-btn" type="button" data-save-slot="1">Slot 1</button>
+                <button class="secondary save-slot-btn" type="button" data-save-slot="2">Slot 2</button>
+                <button class="secondary save-slot-btn" type="button" data-save-slot="3">Slot 3</button>
+                <button class="secondary save-slot-btn" type="button" data-save-slot="4">Slot 4</button>
+              </div>
+            </div>
+            <div class="save-drawer-section">
+              <div class="save-drawer-title">Load</div>
+              <div class="save-slot-grid">
+                <button class="secondary save-load-btn" type="button" data-load-slot="1" disabled>Slot 1</button>
+                <button class="secondary save-load-btn" type="button" data-load-slot="2" disabled>Slot 2</button>
+                <button class="secondary save-load-btn" type="button" data-load-slot="3" disabled>Slot 3</button>
+                <button class="secondary save-load-btn" type="button" data-load-slot="4" disabled>Slot 4</button>
+              </div>
+            </div>
+            <div class="save-drawer-section">
+              <button id="resetSavesBtn" class="secondary reset-saves-btn" type="button" data-locked="true">
+                <svg class="reset-lock-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M7 10V7a5 5 0 0 1 10 0v3h1a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1h1Zm2 0h6V7a3 3 0 0 0-6 0v3Z"></path>
+                </svg>
+                Reset Saved Games
+              </button>
+            </div>
+          </div>
+        </div>
+        <button id="howToBtn" class="howto-widget-toggle" type="button" aria-label="How to play" aria-haspopup="dialog" aria-expanded="false" data-tooltip="How to play">
+          <svg class="howto-widget-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M4 4.5c0-1 .9-1.8 2-1.8h5.6c1 0 2 .3 2.9.9.9-.6 1.9-.9 2.9-.9H22v16.6h-4.6c-1.1 0-2.1.3-2.9.9-.8-.6-1.8-.9-2.9-.9H6c-1.1 0-2 .8-2 1.8V4.5Zm2 .3v12.8c.5-.3 1-.4 1.6-.4h3.9c.9 0 1.8.2 2.6.6V5.2c-.8-.4-1.7-.6-2.6-.6H6Zm10.4 12.4H20V5.3h-3.9c-.9 0-1.8.2-2.6.6v12.5c.8-.4 1.7-.6 2.9-.6Z"></path>
+          </svg>
+        </button>
+        <button id="townBtn" class="secondary">Menu</button>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="map-panel">
+        <div class="map-panel-top">
+          <div id="resourcePanel" class="resource-panel"></div>
+        </div>
+        <div id="mapContainer">
+          <div id="phaserContainer" class="phaser-view" aria-label="Bay map"></div>
+          <canvas id="rangeCanvas" class="range-overlay" aria-hidden="true"></canvas>
+          <div class="map-controls">
+            <button id="mapHomeBtn" class="secondary map-ctrl-btn" title="Center on home">&#x2302;</button>
+            <div class="zoom-controls">
+              <button id="mapZoomInBtn" class="secondary map-ctrl-btn" title="Zoom in">&#xFF0B;</button>
+              <button id="mapZoomOutBtn" class="secondary map-ctrl-btn" title="Zoom out">&#xFF0D;</button>
+            </div>
+            <div id="unitShortcuts" class="unit-shortcuts" aria-label="Unit shortcuts"></div>
+          </div>
+          <div id="loadingOverlay" class="loading-overlay hidden" hidden>
+            <canvas id="loadingArtCanvas" aria-hidden="true"></canvas>
+            <div class="loading-box">
+              <div id="loadingText" class="loading-text">L O A D I N G<span class="loading-dots"><i></i><i></i><i></i></span></div>
+            </div>
+          </div>
+          <div id="encounterOverlay" class="encounter-overlay hidden">
+            <canvas id="encounterCanvas" aria-hidden="true"></canvas>
+            <div id="encounterMessage" class="loading-box encounter-message">
+              <div class="loading-text">You encounter...</div>
+            </div>
+          </div>
+          <div id="campOverlay" class="camp-overlay hidden">
+            <canvas id="campCanvas" aria-hidden="true"></canvas>
+            <div id="campTitle" class="settlement-title hidden"></div>
+            <div class="camp-top">
+              <div id="campDiceWrapper" class="camp-dice-wrapper">
+                <div id="campDiceGlow" class="camp-dice-glow" aria-hidden="true"></div>
+                <div id="campDiceHost" class="camp-dice-host"></div>
+                <div id="campDiceValue" class="camp-dice-value"></div>
+              </div>
+            </div>
+            <div id="campMessage" class="loading-box encounter-message camp-message">
+              <div class="loading-text">click to roll</div>
+              <button id="campReturnBtn" class="primary">Back to map</button>
+            </div>
+          </div>
+          <div id="poiOverlay" class="camp-overlay poi-overlay hidden">
+            <canvas id="poiCanvas" aria-hidden="true"></canvas>
+            <div id="poiTitle" class="settlement-title hidden"></div>
+            <div id="poiPrizeBadge" class="poi-prize-badge" aria-hidden="true"></div>
+            <div class="camp-top poi-top">
+              <div id="poiDiceWrapper" class="camp-dice-wrapper poi-dice-wrapper">
+                <div id="poiDiceGlow" class="camp-dice-glow poi-dice-glow" aria-hidden="true"></div>
+                <div id="poiDiceHost" class="camp-dice-host poi-dice-host"></div>
+                <div id="poiDiceValue" class="camp-dice-value poi-dice-value"></div>
+              </div>
+            </div>
+            <div id="poiMessage" class="loading-box encounter-message camp-message poi-message">
+              <div class="loading-text">click to roll</div>
+              <button id="poiReturnBtn" class="primary">Back to map</button>
+            </div>
+          </div>
+          <div id="randomOverlay" class="camp-overlay random-overlay hidden">
+            <canvas id="randomCanvas" aria-hidden="true"></canvas>
+            <div id="randomTitle" class="settlement-title hidden"></div>
+            <div class="camp-top random-top">
+              <div id="randomDiceWrapper" class="camp-dice-wrapper random-dice-wrapper">
+                <div id="randomDiceGlow" class="camp-dice-glow random-dice-glow" aria-hidden="true"></div>
+                <div id="randomDiceHost" class="camp-dice-host random-dice-host"></div>
+                <div id="randomDiceValue" class="camp-dice-value random-dice-value"></div>
+              </div>
+            </div>
+            <div id="randomMessage" class="loading-box encounter-message camp-message random-message">
+              <div class="loading-text">click to roll</div>
+              <button id="randomReturnBtn" class="primary">Back to map</button>
+            </div>
+          </div>
+          <div id="battleOverlay" class="camp-overlay battle-overlay hidden">
+            <canvas id="battleCanvas" aria-hidden="true"></canvas>
+            <div id="battleTitle" class="settlement-title hidden"></div>
+            <div class="camp-top battle-top">
+              <div id="battleDiceWrapper" class="camp-dice-wrapper battle-dice-wrapper">
+                <div id="battleDiceGlow" class="camp-dice-glow battle-dice-glow" aria-hidden="true"></div>
+                <div id="battleDiceHost" class="camp-dice-host battle-dice-host"></div>
+                <div id="battleDiceValue" class="camp-dice-value battle-dice-value"></div>
+              </div>
+            </div>
+            <div id="battleMessage" class="loading-box encounter-message camp-message battle-message">
+              <div class="loading-text">click to roll</div>
+              <button id="battleReturnBtn" class="primary">Back to map</button>
+            </div>
+          </div>
+          <div id="settlementOverlay" class="camp-overlay settlement-overlay hidden">
+            <canvas id="settlementCanvas" aria-hidden="true"></canvas>
+            <div id="settlementTitle" class="settlement-title hidden"></div>
+            <div class="camp-top settlement-top">
+              <div id="settlementDiceWrapper" class="camp-dice-wrapper settlement-dice-wrapper">
+                <div id="settlementDiceGlow" class="camp-dice-glow settlement-dice-glow" aria-hidden="true"></div>
+                <div id="settlementDiceHost" class="camp-dice-host settlement-dice-host"></div>
+                <div id="settlementDiceValue" class="camp-dice-value settlement-dice-value"></div>
+              </div>
+            </div>
+            <div id="settlementMessage" class="loading-box encounter-message camp-message settlement-message">
+              <div class="loading-text">click to roll</div>
+              <button id="settlementReturnBtn" class="primary">Back to map</button>
+            </div>
+          </div>
+          <div id="largeSettlementOverlay" class="camp-overlay settlement-overlay large-settlement-overlay hidden">
+            <canvas id="largeSettlementCanvas" aria-hidden="true"></canvas>
+            <div id="largeSettlementTitle" class="settlement-title hidden"></div>
+            <div class="camp-top settlement-top large-settlement-top">
+              <div id="largeSettlementDiceWrapper" class="camp-dice-wrapper settlement-dice-wrapper large-settlement-dice-wrapper">
+                <div id="largeSettlementDiceGlow" class="camp-dice-glow settlement-dice-glow" aria-hidden="true"></div>
+                <div id="largeSettlementDiceHost" class="camp-dice-host settlement-dice-host"></div>
+                <div id="largeSettlementDiceValue" class="camp-dice-value settlement-dice-value"></div>
+              </div>
+            </div>
+            <div id="largeSettlementMessage" class="loading-box encounter-message camp-message settlement-message">
+              <div class="loading-text">click to roll</div>
+              <button id="largeSettlementShopToggle" class="secondary" type="button">Shop</button>
+              <button id="largeSettlementReturnBtn" class="primary">Back to map</button>
+            </div>
+            <div id="largeSettlementShopWindow" class="home-loadout-window large-settlement-shop-window hidden">
+              <div class="window-body">
+                <p class="panel-sub" id="largeSettlementShopTitle">Settlement Shop</p>
+                <div id="largeSettlementShopList" class="home-loadout-list"></div>
+                <div class="home-loadout-actions">
+                  <div id="largeSettlementShopOwned" class="home-loadout-summary">Carrying: 0</div>
+                  <div id="largeSettlementShopSpending" class="home-loadout-summary">Spending: 0</div>
+                  <div id="largeSettlementShopSummary" class="home-loadout-summary">Buying: --</div>
+                  <button id="largeSettlementShopApplyBtn" class="primary" type="button">Trade</button>
+                </div>
+                <div id="largeSettlementShopStatus" class="shop-status-message" aria-live="polite"></div>
+              </div>
+            </div>
+            <div id="homeBaseUi" class="home-base-ui hidden">
+              <div class="home-base-tabs">
+                <button id="homeBaseTabUnits" class="secondary home-base-tab active" type="button">Units</button>
+                <button id="homeBaseTabBuild" class="secondary home-base-tab" type="button">Upgrade</button>
+              </div>
+              <div id="homeBaseUnitsPanel" class="home-base-panel">
+                <p class="panel-sub">Available Rangers</p>
+                <div class="home-base-units-grid">
+                  <div>
+                    <div id="homeBaseUnitsList" class="home-base-units-list">
+                      <div class="empty">No units available.</div>
+                    </div>
+                  </div>
+                  <div id="homeLoadoutWindow" class="home-loadout-window hidden">
+                    <div class="window-body">
+                      <p class="panel-sub" id="homeLoadoutTitle">Loadout</p>
+                      <div id="homeLoadoutList" class="home-loadout-list">
+                        <div class="empty">Select a unit to configure loadout.</div>
+                      </div>
+                      <div class="home-loadout-actions">
+                        <button id="homeLoadoutApplyBtn" class="primary">Apply</button>
+                        <button
+                          id="homeLoadoutUnloadBtn"
+                          class="secondary"
+                          type="button"
+                          data-tooltip="Transfer scavenged resources to base (gas, wood, components)."
+                        >Unload</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="homeBaseBuildPanel" class="home-base-panel hidden">
+                <div id="homeBuildFilterBar" class="home-build-filter-bar" role="group" aria-label="Build filters">
+                  <button class="secondary build-filter-btn" type="button" data-filter="">All (0)</button>
+                  <button class="secondary build-filter-btn" type="button" data-filter="Personnel">Personnel (0)</button>
+                  <button class="secondary build-filter-btn" type="button" data-filter="Equipment">Equipment (0)</button>
+                  <button class="secondary build-filter-btn" type="button" data-filter="Facility">Facility (0)</button>
+                </div>
+                <div id="homeBuildList" class="upgrade-list">
+                  <div class="upgrade-entry">
+                    <button class="primary" type="button">Assemble Recon Unit &#x00A7; 4 Chits, 1 food, 1 water, 1 components</button>
+                    <div class="panel-sub">Forge a fresh recon crew for the next run.</div>
+                  </div>
+                  <div class="upgrade-entry">
+                    <button class="primary" type="button">Solar Panel &#x00A7; 3 Chits, 1 wood, 2 components</button>
+                    <div class="panel-sub">Bolt on solar arrays for +1 action point.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div id="logOverlay" class="log-overlay">
+        <div class="log-overlay-top">
+          <div class="log-title">Comms</div>
+        </div>
+        <div id="musicWidgetDock" class="music-widget-dock"></div>
+        <div id="logEntries" class="log-entries"></div>
+      </div>
+
+    </main>
+
+      <div id="regionModal" class="region-modal hidden">
+        <div class="region-card">
+          <div class="region-header">
+            <div>
+              <p class="panel-sub">Town Hall</p>
+              <h3 id="regionTitle">Region</h3>
+            </div>
+            <button id="closeRegionBtn" class="secondary">Close</button>
+          </div>
+          <div id="regionDetails" class="region-details">Select a region.</div>
+          <div class="actions region-actions">
+            <button id="deployBtn" class="primary">Deploy Rangers</button>
+            <button id="upgradeBtn" class="secondary">Upgrades</button>
+          </div>
+        </div>
+      </div>
+
+  <div id="townWindow" class="floating-window hidden">
+    <div class="window-header" id="townWindowHandle">
+      <div>
+        <h3>Menu</h3>
+      </div>
+      <button id="closeTownBtn" class="secondary">Close</button>
+    </div>
+    <div class="window-body">
+      <label class="menu-toggle-row tour-skip-toggle">
+        <input type="checkbox" id="liveScoreToggle" checked>
+        <span class="tour-skip-label">Show live score</span>
+      </label>
+      <div class="settings-actions">
+        <button id="restartRunBtn" class="secondary" type="button">Restart</button>
+        <button id="quitToMenuBtn" class="secondary" type="button">Quit to Main Menu</button>
+        <button id="quitToOsBtn" class="secondary" type="button">Quit to OS</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="howToWindow" class="floating-window hidden" aria-hidden="true">
+    <div class="window-header" id="howToWindowHandle">
+      <div>
+        <h3>How to Play</h3>
+      </div>
+      <button id="closeHowToBtn" class="secondary howto-close-btn" type="button" aria-label="Close how to play">X</button>
+    </div>
+    <div id="howToBody" class="window-body howto-window-body"></div>
+    <div class="window-footer">
+      <button id="closeHowToFooterBtn" class="secondary" type="button">Close</button>
+    </div>
+  </div>
+
+  <div id="tourOverlay" class="tour-overlay hidden" aria-hidden="true">
+    <div id="tourScrim" class="tour-scrim"></div>
+    <div id="tourSpotlight" class="tour-spotlight hidden" aria-hidden="true"></div>
+    <div id="tourWindow" class="floating-window tour-window" role="dialog" aria-label="Onboarding tour">
+      <div class="window-header">
+        <div>
+          <h3 id="tourTitle">Welcome</h3>
+        </div>
+        <button id="tourCloseBtn" class="secondary howto-close-btn" type="button" aria-label="Close tour">X</button>
+      </div>
+      <div id="tourBody" class="window-body howto-window-body"></div>
+      <div class="window-footer tour-footer">
+        <label class="tour-skip-toggle">
+          <input type="checkbox" id="tourDontShowToggle">
+          <span class="tour-skip-label">Don't show this again</span>
+        </label>
+        <div class="tour-nav">
+          <button id="tourPrevBtn" class="secondary" type="button" aria-label="Previous step">⇦</button>
+          <button id="tourNextBtn" class="primary" type="button" aria-label="Next step">⇨</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="upgradeWindow" class="floating-window hidden">
+    <div class="window-header" id="upgradeWindowHandle">
+      <div>
+        <p class="panel-sub">Upgrades</p>
+        <h3>Command Post</h3>
+      </div>
+      <button id="closeUpgradeBtn" class="secondary">Close</button>
+    </div>
+    <div class="window-body">
+      <p class="panel-sub">Upgrade shop</p>
+      <div id="upgradeList" class="upgrade-list">
+        <div class="empty">Loading upgrades...</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="unitUpgradeWindow" class="floating-window hidden">
+    <div class="window-header" id="unitUpgradeWindowHandle">
+      <div>
+        <h3 id="unitUpgradeTitle">Select a unit</h3>
+      </div>
+      <button id="closeUnitUpgradeBtn" class="secondary">Close</button>
+    </div>
+    <div class="window-body">
+      <div id="unitUpgradeList" class="unit-upgrade-list">
+        <div class="empty">No units available.</div>
+      </div>
+    </div>
+  </div>
+
+    <div id="squadWindow" class="floating-window squad-window hidden">
+    <div class="window-header" id="squadWindowHandle">
+      <div>
+        <h3 id="squadTitle">Strike Team</h3>
+      </div>
+      <button id="closeSquadBtn" class="secondary">Close</button>
+    </div>
+    <div class="window-body">
+      <div id="squadStatus" class="squad-status">Deploy the Rangers to begin issuing orders.</div>
+      <div class="squad-moves">
+        <p class="panel-sub">Move Orders</p>
+        <div id="squadMoveList" class="squad-move-list">No active squad.</div>
+      </div>
+    </div>
+  </div>
+
+  <section id="gameOverOverlay" class="gameover-overlay hidden" aria-hidden="true">
+    <div class="gameover-content">
+      <div class="gameover-title">GAME OVER</div>
+      <div id="gameOverReason" class="gameover-reason"></div>
+      <button id="gameOverRestartBtn" class="primary" type="button">Try better next time!</button>
+      <div class="gameover-actions">
+        <button id="gameOverQuitMenuBtn" class="secondary" type="button">Quit to Main Menu</button>
+        <button id="gameOverQuitOsBtn" class="secondary" type="button">Quit to OS</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="missionOverlay" class="gameover-overlay mission-overlay hidden" aria-hidden="true">
+    <div class="gameover-content">
+      <div class="gameover-title">MISSION SUCCESS</div>
+      <div id="missionReason" class="gameover-reason"></div>
+      <div id="missionStats" class="mission-stats"></div>
+      <button id="missionRestartBtn" class="primary" type="button">Give it another shot!</button>
+      <div class="gameover-actions">
+        <button id="missionQuitMenuBtn" class="secondary" type="button">Quit to Main Menu</button>
+        <button id="missionQuitOsBtn" class="secondary" type="button">Quit to OS</button>
+      </div>
+    </div>
+  </section>
+
+  <div id="devPanel" class="dev-panel hidden">
+    <div class="dev-title">Dev Panel</div>
+    <label class="dev-toggle">
+      <input type="checkbox" id="devClickProbeToggle">
+      <span>Log map click coords</span>
+    </label>
+    <label class="dev-toggle">
+      <input type="checkbox" id="devFogToggle">
+      <span>Fog of war</span>
+    </label>
+    <label class="dev-toggle">
+      <input type="checkbox" id="devEncounterToggle">
+      <span>Show Encounter Splash</span>
+    </label>
+    <label class="dev-toggle">
+      <input type="checkbox" id="devCampToggle">
+      <span>Show Camp Scene</span>
+    </label>
+    <label class="dev-toggle">
+      <input type="checkbox" id="cursorLockZoomToggle">
+      <span id="zoomModeLabel">Default zoom</span>
+    </label>
+    <div class="dev-subtitle">Roll difficulty</div>
+    <label class="dev-field">
+      <span>Difficulty handicap</span>
+      <input type="number" id="devDifficultyInput" min="-20" max="20" step="1">
+    </label>
+      <div class="dev-subtitle">Scenes</div>
+      <div class="dev-mini-buttons">
+        <button id="devShowEncounterBtn" class="secondary">Encounter</button>
+        <button id="devShowCampBtn" class="secondary">Camp</button>
+        <button id="devShowPoiBtn" class="secondary">POI</button>
+        <button id="devShowRandomBtn" class="secondary">Random</button>
+        <button id="devShowBattleBtn" class="secondary">Battle</button>
+        <button id="devShowSettlementBtn" class="secondary">Settlement</button>
+        <button id="devShowSpinBtn" class="secondary">Spin (Radio Fremont)</button>
+        <button id="devTriDiceBtn" class="secondary">Tri-Color Dice</button>
+      </div>
+      <div class="dev-subtitle">Intro story</div>
+      <label class="dev-toggle">
+        <input type="checkbox" id="devStoryToggle">
+        <span>Enable intro story</span>
+      </label>
+      <label class="dev-toggle">
+        <input type="checkbox" id="devTitleScreenToggle">
+        <span>Enable title screen</span>
+      </label>
+      <label class="dev-toggle">
+        <input type="checkbox" id="devTourResetToggle">
+        <span>Reset onboarding tour</span>
+      </label>
+      <div class="dev-readout" id="devClickCoords">Click the map to sample coords.</div>
+      <div class="dev-subtitle">Teleport</div>
+      <div class="dev-buttons">
+        <button id="devTeleportBtn" class="secondary">Teleport selected unit</button>
+      </div>
+      <div class="dev-readout" id="devTeleportReadout">Teleport idle.</div>
+      <div class="dev-subtitle">Stockpile</div>
+      <div class="dev-buttons">
+        <button id="devStockpileBoostBtn" class="secondary">+100 all resources</button>
+      </div>
+    <div class="dev-hint">Press Ctrl+Alt+F9 to toggle panel.</div>
+    </div>
+
+    <div id="titleScreenOverlay" class="title-screen hidden" aria-hidden="true">
+      <canvas id="titleScreenArtCanvas" aria-hidden="true"></canvas>
+      <div id="titleMainText" class="title-main-text" data-text="From Rust 'Til Dawn" aria-hidden="true"><span class="title-main-text-label">From Rust 'Til Dawn</span></div>
+      <div id="titleShaderHost" class="title-shader-host" aria-label="From Rust Till Dawn"></div>
+      <div id="titleMenu" class="title-menu" role="menu" aria-label="Title menu">
+        <div id="titleMusicWrap" class="title-music-wrap" aria-label="Music controls">
+          <div class="title-music-panel">
+            <div class="music-widget">
+              <div id="musicTrackName" class="music-track-name" aria-live="polite" title="">&mdash;</div>
+              <input id="musicProgressSlider" class="music-progress-slider" type="range" min="0" max="100" step="0.1" value="0" aria-label="Track progress" disabled>
+              <div class="music-time-row">
+                <span id="musicTimeCurrent" class="music-time">0:00</span>
+                <span id="musicTimeTotal" class="music-time">0:00</span>
+              </div>
+              <div class="music-bottom-row">
+                <div class="music-button-row">
+                  <button id="musicPrevBtn" class="music-control-btn" type="button" aria-label="Previous track">&#x23EE;&#xFE0E;</button>
+                  <button id="musicPlayPauseBtn" class="music-control-btn primary-toggle" type="button" aria-label="Play music">&#x23EF;</button>
+                  <button id="musicNextBtn" class="music-control-btn" type="button" aria-label="Next track">&#x23ED;&#xFE0E;</button>
+                </div>
+                <input id="musicVolumeSlider" class="music-volume-slider" type="range" min="0" max="1" step="0.01" value="0.35" orient="vertical" aria-label="Music volume">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="titleMenuPanel" class="title-menu-panel">
+        <button id="titleStoryBtn" class="secondary" type="button">Story</button>
+        <button id="titleHowToBtn" class="secondary" type="button">How to Play</button>
+        <button id="titleCreditsBtn" class="secondary" type="button">Credits</button>
+        <button id="titleHighScoresBtn" class="secondary" type="button">High Scores</button>
+        <button id="titleQuitBtn" class="secondary" type="button">Quit</button>
+        <hr class="title-menu-divider" aria-hidden="true">
+          <div class="title-newgame-row">
+          <div class="title-difficulty-block">
+            <div class="title-difficulty-buttons" role="group" aria-label="Difficulty">
+              <button id="titleDifficultyLow" class="secondary" type="button">Low</button>
+              <button id="titleDifficultyMedium" class="secondary active" type="button">Medium</button>
+              <button id="titleDifficultyHigh" class="secondary" type="button">High</button>
+              <button
+                id="titleDifficultyAdvancedBtn"
+                class="secondary title-difficulty-advanced-btn"
+                type="button"
+                aria-label="Advanced difficulty settings"
+                aria-expanded="false"
+              >&#9881;</button>
+            </div>
+            <label class="title-hardcore-row" for="titleAdvHardcoreCheckbox" data-tooltip="Higher score but no saving/loading">
+              <input id="titleAdvHardcoreCheckbox" type="checkbox" class="title-hardcore-checkbox">
+              <span class="title-hardcore-label">Hardcore Mode</span>
+            </label>
+            <div id="titleDifficultyAdvancedPane" class="title-difficulty-advanced-pane hidden">
+              <label class="title-adv-row" for="titleAdvSettlementSlider">
+                <span class="title-adv-label">Small settlements</span>
+              </label>
+              <input
+                id="titleAdvSettlementSlider"
+                class="home-loadout-slider title-adv-slider"
+                type="range"
+                min="12"
+                max="26"
+                step="1"
+                value="16"
+                aria-label="Number of small settlements"
+              >
+              <div class="title-adv-extremes"><span>Low</span><span>High</span></div>
+              <label class="title-adv-row" for="titleAdvUnitSpeedSlider">
+                <span class="title-adv-label">Unit movement speed</span>
+              </label>
+              <input
+                id="titleAdvUnitSpeedSlider"
+                class="home-loadout-slider title-adv-slider"
+                type="range"
+                min="0"
+                max="100"
+                step="1"
+                value="50"
+                aria-label="Unit movement speed"
+              >
+              <div class="title-adv-extremes"><span>Low</span><span>High</span></div>
+              <button id="titleAdvResetBtn" class="secondary title-adv-reset" type="button">Default</button>
+            </div>
+          <div class="title-difficulty-label">Difficulty</div>
+          </div>
+            <button id="titleNewGameBtn" class="secondary" type="button">New Game</button>
+          </div>
+      </div>
+      </div>
+      <div id="titleHowToPanel" class="title-howto-pane hidden">TBD</div>
+      <div id="titleCreditsPanel" class="title-credits-pane hidden">TBD</div>
+      <div id="titleHighScoresPanel" class="title-howto-pane hidden">No runs yet.</div>
+      <div id="titleLoadingIndicator" class="loading-box title-loading-indicator hidden">
+        <div class="loading-text">L O A D I N G<span class="loading-dots"><i></i><i></i><i></i></span></div>
+      </div>
+      <div id="titleVersion" class="title-version">v. 0.9146</div>
+      <a id="titleBrand" class="title-brand" href="https://j-mav.github.io/darwinstudio/" target="_blank" rel="noopener noreferrer" title="Darwin Studio">
+        <img src="assets/images/brand/darwin-studio.svg" width="131" height="42" alt="Darwin Studio">
+      </a>
+    </div>
+
+    <div id="storyOverlay" class="story-overlay hidden" aria-hidden="true">
+      <div id="storyPhaserContainer" class="story-phaser" aria-label="Intro story"></div>
+      <div class="story-advance-hint">Click to advance</div>
+      <button id="storySkipBtn" class="story-skip-btn secondary" type="button" aria-label="Skip story">SKIP</button>
+    </div>
+  
+  <section id="triDiceOverlay" class="dice-test-overlay hidden" aria-hidden="true">
+    <div class="dice-test-panel">
+      <div class="dice-test-header">
+        <div>
+          <h2>Resource Slot Test</h2>
+          <p class="panel-sub">Spin to pick: ?? ? ??</p>
+        </div>
+        <button id="triDiceCloseBtn" class="secondary" type="button">Close</button>
+      </div>
+      <div class="dice-test-body">
+        <div id="triDiceHost" class="dice-test-host slot-reel-host" aria-label="Resource slot reel"></div>
+        <div class="dice-test-controls">
+          <button id="triDiceRollBtn" class="primary" type="button">Spin</button>
+          <div id="triDiceOutcome" class="dice-test-outcome">Ready to spin.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </div>
+
+  <script defer src="main.js"></script>
+</body>
+</html>

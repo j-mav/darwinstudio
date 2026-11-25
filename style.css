@@ -197,6 +197,11 @@ code { font-family: ui-monospace, Consolas, monospace; font-size: 0.9em; backgro
 .shots img.wide { grid-column: 1 / -1; justify-self: center; width: auto; } /* the gameplay GIF, at its own size */
 @media (max-width: 52rem) { .shots { grid-template-columns: minmax(0, 1fr); } }
 
+/* buttons with a coloured platform icon in place of the lamp; the icon glows on hover */
+.btn.has-icon::before { display: none; }
+.btn-ico { flex: none; width: 1.2rem; height: 1.2rem; transition: filter 0.15s; }
+.btn.has-icon:hover .btn-ico, .btn.has-icon:focus-visible .btn-ico { filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.35)); }
+
 /* coffee dialog before a download: a faceplate over the dimmed room */
 .gate {
   width: min(30rem, calc(100vw - 2rem)); max-height: calc(100dvh - 2rem); overflow: auto;
