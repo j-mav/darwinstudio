@@ -161,12 +161,17 @@ section > .wrap { padding-block: clamp(2.5rem, 6vw, 4.5rem); }
 .plugin h3 .label { border: 0; padding: 0; letter-spacing: 0.02em; }
 .plugin .full { color: var(--muted); margin-top: -0.5rem; }
 .side { display: grid; gap: 1.2rem; align-content: start; min-width: 0; }
+/* each plugin's two download buttons: stacked, same width, the same in every card */
+.side .downloads { flex-direction: column; align-items: stretch; width: 100%; max-width: 17rem; }
 .extras { color: var(--muted); font-size: 0.95rem; }
+
+.disclaimer { color: var(--muted); font-style: italic; font-size: 0.85rem; max-width: 46rem; border-top: 2px solid var(--ink); padding-top: 1rem; }
 
 /* mode list */
 .modes { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.45rem; }
 .modes li { display: grid; grid-template-columns: 0.55rem 8.4rem minmax(0, 1fr); gap: 0.75rem; align-items: baseline; }
 .modes li::before { content: ""; width: 0.55rem; height: 0.55rem; background: var(--ink); }
+.modes .model { color: var(--muted); white-space: nowrap; }
 .modes b { font-weight: 800; text-transform: uppercase; font-size: 0.86rem; letter-spacing: 0.02em; color: var(--ink); }
 
 /* install */
