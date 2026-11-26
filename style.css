@@ -154,7 +154,7 @@ section > .wrap { padding-block: clamp(2.5rem, 6vw, 4.5rem); }
 .plugin { display: grid; gap: 1.8rem; padding-block: 2.5rem; border-top: 2px solid var(--ink); }
 .plugin:first-of-type { border-top: 0; padding-top: 0; }
 .plugin .shot { justify-self: center; }
-.plugin .shot.tall { max-width: 34rem; }
+.plugin .shot.tall { max-width: min(34rem, 100%); }
 .plugin-body { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 2.5rem; }
 .plugin-info { display: grid; gap: 0.9rem; align-content: start; min-width: 0; }
 .plugin h3 { font-size: var(--step-2); display: flex; align-items: baseline; gap: 0.8rem; flex-wrap: wrap; }
