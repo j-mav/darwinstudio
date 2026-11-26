@@ -308,6 +308,47 @@
   </div>
 </section>
 
+<section id="specs">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="label">Technical specs</p>
+      <h2>Optimized for minimal resource use</h2>
+      <p>On a modern processor, each S&amp;F plugin uses a fraction of a percent of a CPU core. See below for comparisons
+        against popular free alternatives. Comp and Channel add a constant 2 ms of latency (for lookahead functions), all
+        others are latency-free.</p>
+    </div>
+
+    <div class="stats">
+      <div><b>0.1–0.5 %</b><span>of one modern CPU core per plugin</span></div>
+      <div><b>4–12×</b><span>lighter than alternative compressors we measured</span></div>
+      <div><b>1.2 %</b><span>of one core for the Channel with all plugins on</span></div>
+    </div>
+
+    <figure class="cpu-chart">
+      <figcaption><b>CPU at 48 kHz</b>, % of one modern CPU core (in brackets: nanoseconds per stereo sample), lower is better.
+        <span class="key"><i class="k-ours"></i>S&amp;F, default to heaviest setting</span>
+        <span class="key"><i class="k-other"></i>alternative plugin, default settings</span></figcaption>
+      <div class="grp">Compressor</div>
+      <div class="bar ours"><span>S&amp;F Comp</span><i style="--a:0.10;--b:0.51"></i><em>0.10–0.51<small>(22–106 ns)</small></em></div>
+      <div class="bar"><span>dBComp</span><i style="--b:0.45"></i><em>0.45<small>(94 ns)</small></em></div>
+      <div class="bar"><span>BUSTERse</span><i style="--b:1.25"></i><em>1.25<small>(260 ns)</small></em></div>
+      <div class="grp">Reverb</div>
+      <div class="bar ours"><span>S&amp;F Reverb</span><i style="--a:0.14;--b:0.28"></i><em>0.14–0.28<small>(29–58 ns)</small></em></div>
+      <div class="bar"><span>RevO</span><i style="--b:0.51"></i><em>0.51<small>(105 ns)</small></em></div>
+      <div class="grp">Saturation</div>
+      <div class="bar ours"><span>S&amp;F Disto</span><i style="--a:0.22;--b:0.49"></i><em>0.22–0.49<small>(46–102 ns)</small></em></div>
+      <div class="bar"><span>TuPRE</span><i style="--b:1.03"></i><em>1.03<small>(214 ns)</small></em></div>
+      <div class="bar"><span>TUBA</span><i style="--b:1.80"></i><em>1.80<small>(374 ns)</small></em></div>
+      <div class="grp">Modulation and delay</div>
+      <div class="bar ours"><span>S&amp;F FX</span><i style="--a:0.09;--b:0.21"></i><em>0.09–0.21<small>(19–44 ns)</small></em></div>
+      <div class="bar ours"><span>S&amp;F Delay</span><i style="--a:0.11;--b:0.14"></i><em>0.11–0.14<small>(23–29 ns)</small></em></div>
+      <div class="grp">Whole channel</div>
+      <div class="bar ours"><span>S&amp;F Channel</span><i style="--a:0.01;--b:1.22"></i><em>0.01–1.22<small>(3–254 ns)</small></em></div>
+      <div class="bar"><span>CHANNEV</span><i style="--b:2.85"></i><em>2.85<small>(593 ns)</small></em></div>
+    </figure>
+  </div>
+</section>
+
 </main>
 
 <footer>
