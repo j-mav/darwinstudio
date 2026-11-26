@@ -4,4 +4,4 @@ The website for Darwin Studio's Set & Forget audio plugins and games (From Rust 
 
 Plain HTML and CSS, served by GitHub Pages from `main`. The installers are attached to this repo's releases.
 
-Fonts: Sora and Routed Gothic, both under the SIL Open Font License 1.1 (`assets/fonts/`).
+Font: Inter Tight, under the SIL Open Font License 1.1 (`assets/fonts/`).
