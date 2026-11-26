@@ -61,7 +61,7 @@
     </div>
     <div class="promo">
       <video id="promo" class="hero-shot" src="video/bundle-promo-wide.mp4" poster="assets/img/promo-poster.jpg"
-             controls autoplay loop playsinline preload="auto" width="1280" height="720"
+             controls loop playsinline preload="metadata" width="1280" height="720"
              aria-label="S&amp;F Bundle promo video: each Set &amp; Forget plugin in turn, then the S&amp;F Channel"></video>
     </div>
   </div>
@@ -309,19 +309,6 @@
 </section>
 
 </main>
-
-<script>
-// Play the promo (looping) with sound. Browsers block sound until the visitor has interacted with the page;
-// then it plays muted, and the video's own speaker control turns the sound on.
-(function () {
-  var v = document.getElementById('promo');
-  if (!v) return;
-  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) { v.pause(); return; }
-  v.muted = false;
-  var p = v.play();
-  if (p && p.catch) { p.catch(function () { v.muted = true; v.play().catch(function () {}); }); }
-})();
-</script>
 
 <footer>
   <div class="wrap">
